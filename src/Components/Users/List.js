@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 function Lists(props) {
   const [list, setList] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
-  // const { list, isLoading } = props;
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hooks-context/use-effect/data/users.json"
@@ -20,8 +18,8 @@ function Lists(props) {
         }, 500);
       });
   }, []);
-  function onShowDetails(e) {
-    props.onShowDetails(e.target.dataset.id);
+  function onGetId(e) {
+    props.onGetId(e.target.dataset.id);
     const wrapObj = document.querySelector(".list-group ");
 
     for (let i = 0; i < wrapObj.children.length; i++) {
@@ -37,7 +35,7 @@ function Lists(props) {
           list.map((item) => {
             return (
               <li
-                onClick={onShowDetails}
+                onClick={onGetId}
                 key={item.id}
                 data-id={item.id}
                 className="list-group-item"
