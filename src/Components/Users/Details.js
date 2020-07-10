@@ -24,7 +24,7 @@ function Details({ usersId }) {
           }, 500);
         });
     }
-  });
+  }, [usersId]);
 
   return (
     <>
